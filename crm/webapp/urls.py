@@ -17,7 +17,12 @@ urlpatterns = [
     # CRUD
     path('dashboard',views.dashboard,name='dashboard'),
 
-    path('create-record',views.create_record,name='create-record')
+    path('create-record',views.create_record,name='create-record'),
+
+
+
+    # dynamic path for specific record
+    path('update-record/<int:pk>',views.update_record,name='update-record'),
 
 
 

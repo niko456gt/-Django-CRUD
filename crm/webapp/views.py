@@ -52,7 +52,7 @@ def my_login(request):
                 return redirect('dashboard')
 
     context = {'form2':form}
-    return render(request, 'webapp/my-login.html', context= context)
+    return render(request, 'webapp/my-login.html', context = context)
 
 # logout 
 def user_logout(request):
@@ -80,5 +80,28 @@ def create_record(request):
             form.save()
             return redirect("dashboard")
     context = {'form3':form}
-    return render(request, 'webapp/create-record.html',context=context)
+    return render(request, 'webapp/create-record.html',context = context)
+
+
+
+#update a record
+
+@login_required(login_url='my-login')
+def update_record(request, pk):
+    record = Record.objects.get(id=pk)
+    form = UpdateRecordForm(instance=record)
+    if request.method == 'POST':
+        form = UpdateRecordForm(request.POST, instance = record)
+        if form.is_valid():
+            form.save()
+            return redirect('dashboard')
+    context = {'form4': form}
+    return render(request, 'webapp/update-record.html',context = context)
+
+
+
+#read 
+@login_required(login_url='my-login')
+def update_record(request, pk):
+    pass
 

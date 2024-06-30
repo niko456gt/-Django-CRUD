@@ -1,0 +1,23 @@
+{%  extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <body>
+        <div class=" container bg-dark shadow-md p-5 form-layout">
+            <h3>Update Record</h3>
+            <h6>Please introduce the changes to the form</h6>
+
+            <hr>
+            <br>
+            <form method="POST" autocomplete="off" >
+                {% csrf_token %}
+                {{form4.as_p}}
+                <br>
+                <button type="submit" class="btn-primary">Update record</button>
+            </form>
+            <br>
+
+
+        </div>
+    </body>
+{% endblock %}
