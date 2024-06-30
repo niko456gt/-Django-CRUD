@@ -102,6 +102,11 @@ def update_record(request, pk):
 
 #read 
 @login_required(login_url='my-login')
-def update_record(request, pk):
-    pass
+def view_record(request, pk):
+
+    all_records = Record.objects.get(id=pk)
+    context = {'record':all_records}
+
+
+    return render(request, 'webapp/view-record.html',context = context)
 

@@ -24,6 +24,8 @@ urlpatterns = [
     # dynamic path for specific record
     path('update-record/<int:pk>',views.update_record,name='update-record'),
 
+    path('view-record/<int:pk>',views.view_record, name='view-record'),
+
 
 
 

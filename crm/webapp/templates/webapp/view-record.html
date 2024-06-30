@@ -1,0 +1,31 @@
+{%  extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <body>
+        <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+            <div class="card-header"> <strong style="text-transform: uppercase;">{{record.id}} : {{record.last_name}} {{record.first_name}} </strong></div>
+            <div class="card-body">
+                <h4 class="card-title">Contact info</h4>
+                <p class="card-text">Email: {{record.email}}</p>
+                <p class="card-text">Phone: {{record.phone}}</p>
+                <h4 class="card-title">Address</h4>
+                <p class="card-title">{{record.address}}</p>
+                <p class="card-title">{{record.city}}</p>
+                <p class="card-title">{{record.state}}, {{record.country}}</p>
+                <p class="card-title">Created: {{record.creation_date}}</p>
+    
+            
+            </div>
+        </div>
+    </body>
+    <br>
+    <hr>
+    <a class="btn btn-secondary" href="{% url 'dashboard' %}">Return</a>
+    &nbsp;
+
+    <a class="btn btn-success" href="{% url 'update-record' record.id %}">Update record</a>
+    &nbsp;
+
+    <a class="btn btn-warning" href="{% url 'create-record' %}">Delete</a>
+{% endblock %}
